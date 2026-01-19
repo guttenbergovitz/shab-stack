@@ -1,15 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.ts",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
-    }
-  ],
+  "bunVersion": "1.x",
+  "buildCommand": "bun install",
+  "installCommand": "bun install",
+  "framework": null,
+  "outputDirectory": ".",
   "routes": [
     {
       "src": "/public/(.*)",

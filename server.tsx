@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { serveStatic } from "hono/bun";
 import Layout from "./views/layout";
 import Home from "./views/pages/home";
 import Manifesto from "./views/pages/manifesto";
@@ -42,8 +41,8 @@ app.use("*", async (c, next) => {
   await next();
 });
 
-// Static files
-app.use("/public/*", serveStatic({ root: "./" }));
+// Static files - handled by Vercel routes
+// app.use("/public/*", serveStatic({ root: "./" }));
 
 // Routes
 app.get("/", (c) => {
