@@ -1,0 +1,6 @@
+[build]
+target = "bun"
+
+[translate]
+# Explicitly tell bun to handle JSX
+tsconfig = "./tsconfig.json"
