@@ -1,17 +1,13 @@
 {
   "bunVersion": "1.x",
-  "buildCommand": "bun install",
-  "installCommand": "bun install",
-  "framework": null,
-  "outputDirectory": ".",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "source": "/public/:path*",
+      "destination": "/public/:path*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/api/index.ts"
+      "source": "/:path*",
+      "destination": "/api"
     }
   ]
 }
