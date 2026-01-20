@@ -46,7 +46,7 @@ export default function Layout({ lang, page, children }: LayoutProps) {
               <span x-show="mobileMenuOpen" x-cloak>✕</span>
             </button>
             
-            <nav class="nav-main" :class="{ 'mobile-open': mobileMenuOpen }">
+            <nav class="nav-main" :class="{ 'mobile-open': mobileMenuOpen }" @click="mobileMenuOpen = false">
               <div class="nav-pages">
                 <a href="/${lang}" class="nav-link ${isActive("home")}" hx-boost="true" hx-target="#main-content" hx-swap="innerHTML transition:true" hx-select="#main-content">${t(lang, "nav.home")}</a>
                 <a href="/${lang}/${t(lang, "routes.about")}" class="nav-link ${isActive("about")}" hx-boost="true" hx-target="#main-content" hx-swap="innerHTML transition:true" hx-select="#main-content">${t(lang, "nav.about")}</a>
@@ -56,7 +56,7 @@ export default function Layout({ lang, page, children }: LayoutProps) {
                 <a href="/${lang}/${t(lang, "routes.demo")}" class="nav-link ${isActive("demo")}" hx-boost="true" hx-target="#main-content" hx-swap="innerHTML transition:true" hx-select="#main-content">${t(lang, "nav.demo")}</a>
               </div>
               
-              <div class="lang-switcher" @click.outside="langDropdownOpen = false">
+              <div class="lang-switcher" @click.stop @click.outside="langDropdownOpen = false">
                 <button 
                   type="button"
                   class="lang-current"
