@@ -27,6 +27,13 @@ export default function Layout({ lang, page, children }: LayoutProps) {
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
           <script src="https://unpkg.com/htmx.org@1.9.10"></script>
           <script src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+          <script dangerouslySetInnerHTML={{__html: `
+            document.addEventListener('htmx:afterSwap', function(event) {
+              if (event.detail.target.id === 'main-content') {
+                window.scrollTo(0, 0);
+              }
+            });
+          `}}></script>
         </head>
         <body>
         <header dangerouslySetInnerHTML={{__html: `
